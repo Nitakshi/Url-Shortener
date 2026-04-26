@@ -9,7 +9,7 @@ dotenv.config();
 
 const app = express();
 
-await connectDB();
+connectDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
