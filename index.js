@@ -1,6 +1,6 @@
 const express = require("express");
 const urlRoute = require("./routes/url");
-const { connectToMongoDB } = require("./connect");
+const { connectDB } = require("./connect");
 const URL = require("./model/url");
 const path = require("path");
 const staticRoute = require("./routes/staticRouter");
@@ -9,10 +9,7 @@ dotenv.config();
 
 const app = express();
 
-app.use(async (req, res, next) => {
-    await connectToMongoDB(process.env.MONGO_URI);
-    next();
-});
+connectDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -50,7 +47,7 @@ app.get('/:shortId', async (req, res) => {
 app.use("/url", urlRoute);
 app.use("/", staticRoute);
 
-module.exports = app;
+// module.exports = app;
 
-// const PORT = process.env.PORT || 8001;
-// app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`) });
+const PORT = process.env.PORT || 8001;
+app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`) });
