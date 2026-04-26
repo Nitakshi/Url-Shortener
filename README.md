@@ -5,12 +5,12 @@
 <img src="https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white" />
 <img src="https://img.shields.io/badge/mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white" />
 
-# 🔗 snip.ly — URL Shortener
+# 🔗 ClipURL
 
 **A fast, minimal URL shortener built with Node.js, Express, and MongoDB.**  
 Paste any long URL, get a clean short link, and track every click with built-in analytics.
 
-[Features](#-features) · [Project Structure](#-project-structure) · [Getting Started](#-getting-started) · [API Reference](#-api-reference) · [Screenshots](#-screenshots)
+[Features](#-features) · [Project Structure](#-project-structure) · [Getting Started](#-getting-started) · [Screenshots](#-screenshots)
 
 </div>
 
@@ -51,13 +51,13 @@ url-shortener/
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/) v18+
-- [MongoDB](https://www.mongodb.com/) running locally on port `27017`
+- [MongoDB Atlas setup](https://www.mongodb.com/)
 
 ### Installation
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/url-shortener.git
+git clone [https://github.com/Nitakshi/Url-Shortener.git]
 cd url-shortener
 
 # 2. Install dependencies
@@ -95,7 +95,7 @@ The server starts at **http://localhost:8001**
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/your-username)
+MIT 
 
 ---
 
