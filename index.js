@@ -29,6 +29,8 @@ app.get('/test', async (req, res) => {
     }
 });
 
+app.use("/url", urlRoute);
+app.use("/", staticRoute);
 app.get('/:shortId', async (req, res) => {
     try {
         const shortId = req.params.shortId;
@@ -43,9 +45,6 @@ app.get('/:shortId', async (req, res) => {
         return res.status(500).send("Server error");
     }
 });
-
-app.use("/url", urlRoute);
-app.use("/", staticRoute);
 
 module.exports = app;
 
