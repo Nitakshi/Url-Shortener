@@ -89,8 +89,8 @@ The server starts at **http://localhost:8001**
 
 ## 🖼️ Screenshots
 
-<img src="./public/image.png" width="700"/>
-<img src=".public/image2.png" width="700"/>
+<img src="./public/image.png" width="800" height="800"/>
+<img src="./public/image2.png" width="800" height="800"/>
 
 
 ---
