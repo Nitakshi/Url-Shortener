@@ -1,6 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const connectDB = async () => {
+dotenv.config();
+
+export const connectDB = async () => {
   const uri = process.env.MONGO_URI;
   if (!uri) {
     throw new Error("MONGO_URI is not defined");
@@ -14,5 +17,3 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
-
-module.exports = { connectDB };

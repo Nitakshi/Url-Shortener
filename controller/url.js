@@ -1,7 +1,7 @@
-const { nanoid } = require("nanoid");
-const URL = require("../model/url");
+import { nanoid } from "nanoid";
+import URL from "../model/url.js";
 
-async function handleGenerateNewShortURL(req, res) {
+export async function handleGenerateNewShortURL(req, res) {
     try {
         const body = req.body;
         if (!body.url) return res.status(400).json({ err: "URL is required" });
@@ -20,7 +20,7 @@ async function handleGenerateNewShortURL(req, res) {
     }
 }
 
-async function handleGetAnalytics(req, res) {
+export async function handleGetAnalytics(req, res) {
     try {
         const shortId = req.params.shortId;
         const result = await URL.findOne({ shortId });
@@ -36,5 +36,3 @@ async function handleGetAnalytics(req, res) {
         return res.status(500).json({ err: "Server error" });
     }
 }
-
-module.exports = { handleGenerateNewShortURL, handleGetAnalytics };

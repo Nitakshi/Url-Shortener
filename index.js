@@ -1,15 +1,20 @@
-const express = require("express");
-const urlRoute = require("./routes/url");
-const { connectDB } = require("./connect");
-const URL = require("./model/url");
-const path = require("path");
-const staticRoute = require("./routes/staticRouter");
-const dotenv = require("dotenv");
+import express from "express";
+import urlRoute from "./routes/url.js";
+import { connectDB } from "./connect.js";
+import URL from "./model/url.js";
+import path from "path";
+import { fileURLToPath } from "url";
+import staticRoute from "./routes/staticRouter.js";
+import dotenv from "dotenv";
+
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
-connectDB();
+await connectDB();
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -17,7 +22,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
 
 app.get('/test', async (req, res) => {
     try {
@@ -46,7 +50,9 @@ app.get('/:shortId', async (req, res) => {
     }
 });
 
-module.exports = app;
+const PORT = process.env.PORT || 8001;
+if (process.env.VERCEL !== "1") {
+  app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`); });
+}
 
-// const PORT = process.env.PORT || 8001;
-// app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`) });
+export default app;
