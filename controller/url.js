@@ -13,7 +13,7 @@ async function handleGenerateNewShortURL(req, res) {
             visitHistory: [],
         });
 
-        return res.render("home", { id: shortId });
+        return res.render("home", { id: shortId, host: req.headers.host});
     } catch (err) {
         console.error(err);
         return res.status(500).json({ err: "Server error" });
