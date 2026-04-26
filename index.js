@@ -47,7 +47,7 @@ app.get('/:shortId', async (req, res) => {
 app.use("/url", urlRoute);
 app.use("/", staticRoute);
 
-// module.exports = app;
+module.exports = app;
 
-const PORT = process.env.PORT || 8001;
-app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`) });
+// const PORT = process.env.PORT || 8001;
+// app.listen(PORT, () => { console.log(`Server started at port: ${PORT}`) });
